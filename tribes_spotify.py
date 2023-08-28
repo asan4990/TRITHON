@@ -8,8 +8,8 @@ from threading import Timer
 # Set spotify scope
 scope = "user-read-currently-playing user-modify-playback-state"
 
-client_id = "959073b1b85e4f10a69b09442cc305fa"
-client_secret = "0b3fbb57a2274b568ad82285b1122939"
+client_id = ""
+client_secret = ""
 redirect_uri = "http://localhost:9000"
 
 
