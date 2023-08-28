@@ -18,7 +18,7 @@ trithon_functions = {
     "spotifyPlay": sp.spotify_playpause,
     "spotifyNext": sp.spotify_next,
     "spotifyPrev": sp.spotify_prev,
-    "spotifyGrab": sp.spotify_tribes_data,
+    "spotifyGrab": sp.spotify_tribes_data
 }
 
 trithon.add_to_dict(**trithon_functions)

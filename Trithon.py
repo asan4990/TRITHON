@@ -57,11 +57,8 @@ class Trithon:
         and Python commands.
         """
 
-        if tribes_func in self.func_dict:
-            return self.func_dict.get(tribes_func)
-        else:
-            print("not found")
-
+        return self.func_dict.get(tribes_func, 'None')
+   
     def eval(self, func, *args: str):
         arg_lst = []
         for arg in args:

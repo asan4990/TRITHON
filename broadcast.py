@@ -1,4 +1,4 @@
-import time, tribes_settings
+import time, tribes_settings, tribes_socket
 from schedule import every, repeat, run_pending
 
 
@@ -10,15 +10,19 @@ def tribes_listener():
     and execute.
     """
 
-    data, _ = tribes_settings.tribes_socket.sock.recvfrom(4096)
+    data, _ = tribes_socket.tribes_socket.sock.recvfrom(4096)
     data = data.decode("utf-8").split()[2]
 
-    # Search data for function
-    find_func = tribes_settings.trithon.read_dict(data)
+    if data == 'alive':
+        # We found a connection
+        print('[TRITHON] Connected to TRIBES. Ready to read functions..')
+    else:
+        # Search data for function
+        find_func = tribes_settings.trithon.read_dict(data)
 
-    # Try the function
-    if find_func:
-        tribes_settings.trithon_functions[data]()
+        # Try the function
+        if find_func:
+            tribes_settings.trithon_functions[data]()
 
 while True:
     run_pending()
